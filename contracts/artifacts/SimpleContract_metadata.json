@@ -26,6 +26,39 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "count",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_increment",
+						"type": "uint256"
+					}
+				],
+				"name": "increment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "oneIncrement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "bool",
@@ -34,6 +67,32 @@
 					}
 				],
 				"name": "setAllowed",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "signedCount",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_increment",
+						"type": "int256"
+					}
+				],
+				"name": "signedIncrement",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -67,11 +126,11 @@
 	},
 	"sources": {
 		"contracts/SimpleContract.sol": {
-			"keccak256": "0xd1e7c78bae97dae4a32582eebd6d03dcfe104b7689d96307c2f0d345956a9860",
+			"keccak256": "0xf3adb8d7501bc27a312f806a59f95b6c61808b05cd62e2370a3b36199956f7c6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7de84f61777da31db50cbdef03ec44ca39b6c8875b20b46a46f7b742be7f1d8f",
-				"dweb:/ipfs/QmYHWSypgWA26xKmdfgZcmpF4VHsaqrRgC75JMPL991NsC"
+				"bzz-raw://3ee25236d7a1d1834cabb45131f14738d313bed246532882211576c6d1c4c72a",
+				"dweb:/ipfs/QmSDpfb6PFFVW6QCiHe3FwWcHacNqoUfDW2v7NPors5hjU"
 			]
 		}
 	},

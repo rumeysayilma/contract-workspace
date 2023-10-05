@@ -2,7 +2,23 @@
 
 pragma solidity >=0.8.2 <0.9.0;
 
-contract SimpleContract {
+interface IAction{
+    function iAmReady() external pure returns(string memory);
+
+}
+
+abstract contract Whois {
+    function WhoAmI() public virtual returns(string memory);
+}
+
+contract VeliUysal {
+    function getFullName() public pure returns(string memory){
+        return "Veli Uysal";
+    }
+}
+
+//SimpleContract'ı IAcyion'dan türetelim:
+contract SimpleContract is IAction, Whois, VeliUysal{
     bool public allowed;
     uint public count;
     int public signedCount;
@@ -16,9 +32,28 @@ contract SimpleContract {
     //string[] public errorMessages;  //unfixed size
     address public owner; //hangi adres bu contract ın sahibi olacak
 
+
+    //Struct tanımlarız:
+    struct Account{
+        string name;
+        string surname;
+        uint256 balance;
+    }
+
+    //Account public account;
+    Account account;
+
+    //Bu struct degerlerini benim adresime girmek ve istediğimde bu degerleri kullanabilmek istiyorum. Bunun için mapping yapılır:
+    //Adres tipindeki bir degiskene karsilik olarak struct Account tipinde degisken yazabiliriz:
+    mapping(address => Account) public accountValues;
+   
+    //Array olusturalım:
+    Account[3] public admins; //fixed array
+    uint private index;
+
     //constructor tanımlamamız lazım:
-    constructor(address _address){
-        owner=_address;
+    constructor(){
+        owner=msg.sender;
         errorMessages[0] = "is not allowed";
         errorMessages[1] = "only owner";
         //errorMessages.push("is not allowed"); 
@@ -63,5 +98,50 @@ contract SimpleContract {
 
         return errorMessages.length;
     }
+
+    //Tanımladığımız struct ı dısarıdan veri alınır hale getiririz.
+    function assignValue(string memory _name, string memory _surname, uint256 _balance) public {
+        account.name = _name;
+        account.surname = _surname;
+        account.balance = _balance;
+    }
+
+    function assignValueStruct(Account memory _account) public {
+        account = _account;
+        // atama tuple: ["rumeysa","yer",600]
+    }
+
+    function getAccount() public view returns (Account memory){
+        Account memory _account = account;
+        return _account;
+    }
+
+    function assignAddressValues(Account memory _account) public{
+        accountValues[msg.sender] = _account;
+    }
+
+    function addAdmin(Account memory admin) public {
+        require(index<3, "has no slot");
+        admins[index++] = admin;
+ 
+    }
+
+    function getAllAdmins() public view returns(Account[3] memory){
+        Account[3] memory _admins; //dinamik bir dizi olusturduk
+        for(uint i=0; i<3; i++){
+            _admins[i] = admins[i];
+        }
+        return _admins;
+    }
+
+    function iAmReady() external pure returns(string memory){
+        return "I am ready!";
+
+    }
+
+    function WhoAmI() public  override pure returns(string memory){
+        return "0xVeli";
+    }
+    
 
 }

@@ -6,15 +6,110 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "WhoAmI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_address",
+						"name": "",
 						"type": "address"
 					}
 				],
+				"name": "accountValues",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "surname",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "surname",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct SimpleContract.Account",
+						"name": "admin",
+						"type": "tuple"
+					}
+				],
+				"name": "addAdmin",
+				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "constructor"
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "admins",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "surname",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -56,12 +151,95 @@
 			{
 				"inputs": [
 					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "surname",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct SimpleContract.Account",
+						"name": "_account",
+						"type": "tuple"
+					}
+				],
+				"name": "assignAddressValues",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "_address",
 						"type": "address"
 					}
 				],
 				"name": "assignAllowence",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_surname",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_balance",
+						"type": "uint256"
+					}
+				],
+				"name": "assignValue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "surname",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct SimpleContract.Account",
+						"name": "_account",
+						"type": "tuple"
+					}
+				],
+				"name": "assignValueStruct",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -107,6 +285,79 @@
 			},
 			{
 				"inputs": [],
+				"name": "getAccount",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "surname",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct SimpleContract.Account",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllAdmins",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "surname",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct SimpleContract.Account[3]",
+						"name": "",
+						"type": "tuple[3]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getFullName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getSizeOfErrorMessages",
 				"outputs": [
 					{
@@ -116,6 +367,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "iAmReady",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -219,11 +483,11 @@
 	},
 	"sources": {
 		"contracts/SimpleContract.sol": {
-			"keccak256": "0xc75725713f0c6e00ee4cb51bb8936d60d9299c3d5e092ed090585a9da19d5a2d",
+			"keccak256": "0xd06e99f181670b9979f24a14b4a6870230390be3985b845b7965d8298b8d4290",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://24f3e22ff2ea47fcafc900e4518fce9f56606e1db68dbfc4424637911ff0ade1",
-				"dweb:/ipfs/QmZgGGt5sJk1fEt3TAjWBfauwqP4itvtDT3ALAVkjxMm1f"
+				"bzz-raw://b09665242becc7843d0a1ae224db9b736b3c47815778d7144c5cdc579a02bee2",
+				"dweb:/ipfs/QmS1kMjxVo7cGtAw9bEEELGbWY2Smu4BSGHDtZgnW2DJ8G"
 			]
 		}
 	},

@@ -1,3 +1,25 @@
+TASK 3 - DİNAMİK ARRAY
+
+    struct Account{
+        string name;
+        string surname;
+        uint256 balance;
+    }
+    Account[] public admins; 
+    function addAdmin(Account memory admin) public {
+        require(index<10, "has no slot");
+        admins.push(admin);
+ 
+    }
+
+    function getAllAdmins() public view returns(Account[] memory){
+        return admins;
+    }
+
+-------------
+
+
+
 REMIX DEFAULT WORKSPACE
 
 Remix default workspace is present when:

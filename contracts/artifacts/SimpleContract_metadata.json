@@ -335,9 +335,9 @@
 								"type": "uint256"
 							}
 						],
-						"internalType": "struct SimpleContract.Account[3]",
+						"internalType": "struct SimpleContract.Account[]",
 						"name": "",
-						"type": "tuple[3]"
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -483,11 +483,11 @@
 	},
 	"sources": {
 		"contracts/SimpleContract.sol": {
-			"keccak256": "0xd06e99f181670b9979f24a14b4a6870230390be3985b845b7965d8298b8d4290",
+			"keccak256": "0x19a894ad4c704f02526c3ddb8dbd9d887f4d9e0fc32f9229bc0e029093da538c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b09665242becc7843d0a1ae224db9b736b3c47815778d7144c5cdc579a02bee2",
-				"dweb:/ipfs/QmS1kMjxVo7cGtAw9bEEELGbWY2Smu4BSGHDtZgnW2DJ8G"
+				"bzz-raw://b9eef664fb4adfc60ad2fa0c5167b442c20e53759c05649936e74aca0c7b0fd8",
+				"dweb:/ipfs/QmRavEE9KEbuHrQNrdzufJFqSTCq9EWDDrapvYH24C59g8"
 			]
 		}
 	},

@@ -48,7 +48,8 @@ contract SimpleContract is IAction, Whois, VeliUysal{
     mapping(address => Account) public accountValues;
    
     //Array olusturalım:
-    Account[3] public admins; //fixed array
+    //Account[3] public admins; //fixed array
+    Account[] public admins; 
     uint private index;
 
     //constructor tanımlamamız lazım:
@@ -121,17 +122,24 @@ contract SimpleContract is IAction, Whois, VeliUysal{
     }
 
     function addAdmin(Account memory admin) public {
-        require(index<3, "has no slot");
-        admins[index++] = admin;
+        require(index<10, "has no slot");
+        //admins[index++] = admin;
+        admins.push(admin);
  
     }
 
-    function getAllAdmins() public view returns(Account[3] memory){
-        Account[3] memory _admins; //dinamik bir dizi olusturduk
-        for(uint i=0; i<3; i++){
-            _admins[i] = admins[i];
-        }
-        return _admins;
+    function getAllAdmins() public view returns(Account[] memory){
+        //Account[3] memory _admins; //dinamik bir dizi olusturduk
+        ///Account[] memory _admins = new Account[](0);
+        //for(uint i=0; i<3; i++){
+            //_admins[i] = admins[i];
+        //}
+
+        ///for(uint i=0;i<_admins.length;i++){
+            ///_admins[i] = admins[i];
+            //_admins[i].push(admins[i]);
+        ///}
+        return admins;
     }
 
     function iAmReady() external pure returns(string memory){

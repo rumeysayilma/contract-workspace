@@ -1,6 +1,11 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity >=0.8.2 <0.9.0;
+//pragma solidity >=0.8.2 <0.9.0;
+
+//pragma solidity >=0.4.23 <0.9.0;
+pragma solidity ^0.8.18;
+
+//import "https://github.com/ConsenSysMesh/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol";
 
 interface IAction{
     function iAmReady() external pure returns(string memory);
@@ -19,6 +24,7 @@ contract VeliUysal {
 
 //SimpleContract'ı IAcyion'dan türetelim:
 contract SimpleContract is IAction, Whois, VeliUysal{
+    //using SafeMath for uint; // import SafeMath
     bool public allowed;
     uint public count;
     int public signedCount;
@@ -31,6 +37,14 @@ contract SimpleContract is IAction, Whois, VeliUysal{
     string[2] public errorMessages;  //fixed size array
     //string[] public errorMessages;  //unfixed size
     address public owner; //hangi adres bu contract ın sahibi olacak
+
+    //event, blok zinciri dışı 3. partiyapıların bunu izleyebilmesi için kullanılır
+    //Event Driven Development - EDD
+    //Biz bu event i tetikliyoruz, bunu dinleyen başka bir yapı bu sayede kullanıcısı uyarabiliyor.
+    //Bazı verilerin EVM üzerinde kontrat deposuna konmasını sağlar.
+    event ContractCreated(address indexed owner, uint256 creationTime); //event imzası oluşturuldu
+
+
 
 
     //Struct tanımlarız:
@@ -59,6 +73,8 @@ contract SimpleContract is IAction, Whois, VeliUysal{
         errorMessages[1] = "only owner";
         //errorMessages.push("is not allowed"); 
         //errorMessages.push("only owner"); 
+        //emit ile EVM'e event oluşturuldugu bildirilir
+        emit ContractCreated(owner, block.timestamp);
 
     }
 
@@ -85,6 +101,7 @@ contract SimpleContract is IAction, Whois, VeliUysal{
 
     function increment(uint _increment) isAllowed public{
         count = count + _increment;
+        //count.nul(); //import SafeMath
     }
 
     function signedIncrement(int _increment) public {
